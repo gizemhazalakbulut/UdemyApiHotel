@@ -24,7 +24,7 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
-builder.Services.AddAutoMapper(typeof(Program)); // AutoMapper için gerekli ayarlarý ekledik. Program.cs dosyasýnýn bulunduðu assembly'den mapper profillerini alýr.
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());// AutoMapper için gerekli ayarlarý ekledik.
 
 // Api cors ayarlamasý yaptýk.
 builder.Services.AddCors(options =>   

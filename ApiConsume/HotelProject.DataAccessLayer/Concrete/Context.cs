@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessLayer.Concrete
 {
-    public class Context:IdentityDbContext<AppUser,AppRole,int>
+    public class Context: IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=GIZEM\\SQLEXPRESS;initial catalog=ApiHotelDb;integrated security=true");
+            optionsBuilder.UseSqlServer("Server=localhost;initial catalog=ApiHotelDb;integrated security=true");
         }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }
@@ -21,6 +21,7 @@ namespace HotelProject.DataAccessLayer.Concrete
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
        
     }
 }

@@ -30,6 +30,9 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IBookingDal, EfBookingDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
 
+builder.Services.AddScoped<IContactDal, EfContactDal>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());// AutoMapper için gerekli ayarlarý ekledik.
 
 // Api cors ayarlamasý yaptýk.

@@ -1,5 +1,9 @@
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.GuestDto;
+using HotelProject.WebUI.ValidationRules.GuestValidationRules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +16,20 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Contex
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddControllersWithViews();
+
+
+
+// DataAnnotations (Required vb.) otomatik hata mesajlarını kapat
+builder.Services.AddControllersWithViews(options =>
+{
+    options.ModelMetadataDetailsProviders.Clear();
+});
+
+// FluentValidation entegrasyonu
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateGuestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateGuestValidator>();
 
 var app = builder.Build();
 

@@ -47,7 +47,7 @@ body {
     font-family: "Heebo",sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 0;
+    line-height: 1;
     color: #666565;
     background-color: #F1F8FF;
     -webkit-text-size-adjust: 100%;

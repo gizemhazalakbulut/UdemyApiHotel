@@ -1,12 +1,13 @@
 ﻿using HotelProject.WebUI.Dtos.GuestDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-    
-        public class GuestController : Controller
+
+    public class GuestController : Controller
         {
             private readonly IHttpClientFactory _httpClientFactory;
             public GuestController(IHttpClientFactory httpClientFactory)

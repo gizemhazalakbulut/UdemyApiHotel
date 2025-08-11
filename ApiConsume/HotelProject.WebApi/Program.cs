@@ -39,6 +39,9 @@ builder.Services.AddScoped<IGuestService, GuestManager>();
 builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
 builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 
+builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());// AutoMapper için gerekli ayarlarý ekledik.
 

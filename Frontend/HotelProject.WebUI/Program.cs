@@ -59,6 +59,12 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+// Hata sayfası için yazdık
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404","?code={0}");
+app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
 
 app.UseAuthentication(); // Proje seviyesinde Authorize için yazdık

@@ -42,6 +42,12 @@ builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
 builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
 
+builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>(); // AppUser için gerekli servis ve veri eriþim katmanlarýný ekledik.
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());// AutoMapper için gerekli ayarlarý ekledik.
 
@@ -55,7 +61,12 @@ builder.Services.AddCors(options =>
 });
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+ 
+}); 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

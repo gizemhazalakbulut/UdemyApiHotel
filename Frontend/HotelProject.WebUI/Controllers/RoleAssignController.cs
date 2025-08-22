@@ -22,6 +22,7 @@ namespace HotelProject.WebUI.Controllers
             return View(values);
         }
 
+        [HttpGet]
         public async Task<IActionResult> AssignRole(int id)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
@@ -38,6 +39,25 @@ namespace HotelProject.WebUI.Controllers
                 roleAssignViewModels.Add(model);
             }
             return View(roleAssignViewModels);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<RoleAssignViewModel> roleAssignViewModel)
+        {
+            var userid =(int)TempData["userId"];
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == userid);
+            foreach(var item in roleAssignViewModel)
+            {
+                if(item.RoleExist)
+                {
+                    await _userManager.AddToRoleAsync(user, item.RoleName);
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
 }

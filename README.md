@@ -1,4 +1,4 @@
-# 🏨 Enterprise Hotel Reservation — RESTful API
+# 🏨 Hotel Reservation — RESTful API
 
 Kurumsal otel rezervasyonları için **REST ilkeleri** ile tasarlanmış, tamamen **stateless** çalışan bir .NET Web API.  
 Frontend ↔ Backend iletişimi **HTTP/JSON** çağrılarıyla yürür.

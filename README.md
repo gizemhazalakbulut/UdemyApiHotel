@@ -96,4 +96,9 @@ Frontend ↔ Backend iletişimi **HTTP/JSON** çağrılarıyla yürür.
 - Rezervasyon formu: **ad-soyad, tarih aralığı, yetişkin/çocuk sayısı, oda sayısı, not**
 - Bülten aboneliği ve iletişim formu
 
+## Görseller
+
+<img width="1775" height="934" alt="api" src="https://github.com/user-attachments/assets/567af2f3-57e3-42b9-8cde-2b8d568f6b7a" />
+
+
 
